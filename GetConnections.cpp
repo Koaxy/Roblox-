@@ -19,7 +19,7 @@ namespace connection_environment
 
 	std::int32_t enable_connection(std::uintptr_t rL)
 	{
-		const auto Signal = *reinterpret_cast<std::uintptr_t*>(r_lua_touserdata(rL, 1));
+		const auto Signal = *(DWORD*)r_lua_touserdata(rL, 1);//*reinterpret_cast<std::uintptr_t*>(r_lua_touserdata(rL, 1));
 
 		if (!Connections.count(Signal))
 		{
